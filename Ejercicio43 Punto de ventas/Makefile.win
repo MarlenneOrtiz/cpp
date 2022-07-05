@@ -1,0 +1,37 @@
+# Project: Proyecto1
+# Makefile created by Dev-C++ 5.5.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main4.o menu4.o productos4.o factura4.o
+LINKOBJ  = main4.o menu4.o productos4.o factura4.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.7.1/include/c++"
+BIN      = "Ejercicio43 Punto de venta IV.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main4.o: main4.cpp
+	$(CPP) -c main4.cpp -o main4.o $(CXXFLAGS)
+
+menu4.o: menu4.cpp
+	$(CPP) -c menu4.cpp -o menu4.o $(CXXFLAGS)
+
+productos4.o: productos4.cpp
+	$(CPP) -c productos4.cpp -o productos4.o $(CXXFLAGS)
+
+factura4.o: factura4.cpp
+	$(CPP) -c factura4.cpp -o factura4.o $(CXXFLAGS)
